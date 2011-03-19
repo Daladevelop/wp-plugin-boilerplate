@@ -1,5 +1,5 @@
 <?php
-	// Register partners as custom post type with partner type as a taxanomy
+	// Register post_type as custom post type with post_typetaxonomy as a taxanomy
 	register_post_type('post_type', array(
 		'labels' => array(
 			'name' => __('Post Types', 'plugin-biolerplate'),
@@ -22,7 +22,7 @@
 		'hierarchical' => false,
 		'show_in_nav_menus' => false,
 		'menu_position' => null,
-		'supports' => array('title', 'thumbnail')
+		'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments')
 	));
 	
 	register_taxonomy('post_type_taxonomy', 'taxonomy', array(
