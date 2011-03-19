@@ -4,7 +4,7 @@ Plugin Name: Plugin Boilerplate
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Boilerplate for WordPress plugins containing basic functionality.
 Version: 1.0
-Author: Rikard Andersson, Henrik Karlsson, Mikael Jorhult
+Author: Rickard Andersson, Henrik Karlsson, Mikael Jorhult
 Author URI: http://URI_Of_The_Plugin_Author
 License: A "Slug" license name e.g. GPL, GPL2, MIT
 	
