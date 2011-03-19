@@ -28,11 +28,11 @@ License: A "Slug" license name e.g. GPL, GPL2, MIT
 
 class wp_plugin_boilerplate {
 	function __construct() {
-		add_action('init', array($this, 'init_custom_post_types'));
-		add_action('init', array($this, 'init_localization'));
-		add_action('init', array($this, 'init_scripts'));
-		add_action('init', array($this, 'init_shortcodes'));
-		add_action('init', array($this, 'init_styles'));
+		// add_action('init', array($this, 'init_custom_post_types'));
+		// add_action('init', array($this, 'init_localization'));
+		// add_action('init', array($this, 'init_scripts'));
+		// add_action('init', array($this, 'init_shortcodes'));
+		// add_action('init', array($this, 'init_styles'));
 	}
 	
 	private function init_localization() {
@@ -45,18 +45,18 @@ class wp_plugin_boilerplate {
 		/* Only enqueue scripts on frontend. */
 		if(!is_admin()) {
 			/* Use jQuery from Google CDN */
-			/*wp_deregister_script('jquery');
+			wp_deregister_script('jquery');
 			wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js');
-			wp_enqueue_script('jquery');*/
+			wp_enqueue_script('jquery');
 			
-			// wp_enqueue_script('plugin-script', plugins_url('/styles/style.css', __FILE__), array(), '1.0', false);
+			wp_enqueue_script('plugin-script', plugins_url('/styles/style.css', __FILE__), array(), '1.0', false);
 		}
 	}
 	
 	private function init_styles() {
 		/* Only enqueue styles on frontend. */
 		if(!is_admin()) {
-			// wp_enqueue_style('plugin-stylesheet', plugins_url('/scripts/script.js', __FILE__), array(), '1.0', 'all');
+			wp_enqueue_style('plugin-stylesheet', plugins_url('/scripts/script.js', __FILE__), array(), '1.0', 'all');
 		}
 	}
 	
