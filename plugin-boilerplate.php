@@ -24,9 +24,10 @@ License: A "Slug" license name e.g. GPL, GPL2, MIT
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-// require_once('functions/widgets.php');
+// require_once('widgets.php');
 
 class wp_plugin_boilerplate {
+	
 	final private $plugin_name = "plugin_boilerplate";
 	
 	function __construct() {
