@@ -27,6 +27,8 @@ License: A "Slug" license name e.g. GPL, GPL2, MIT
 // require_once('functions/widgets.php');
 
 class wp_plugin_boilerplate {
+	final private $plugin_name = "plugin_boilerplate";
+	
 	function __construct() {
 		// add_action('init', array($this, 'init_custom_post_types'));
 		// add_action('init', array($this, 'init_localization'));
@@ -36,8 +38,8 @@ class wp_plugin_boilerplate {
 	}
 	
 	private function init_localization() {
-		if(!load_plugin_textdomain('your-unique-name', '/wp-content/languages/')) {
-			load_plugin_textdomain('your-unique-name', '/wp-content/plugins/plugin-name/languages/');
+		if(!load_plugin_textdomain($this->plugin_name, '/wp-content/languages/')) {
+			load_plugin_textdomain($this->plugin_name, '/wp-content/plugins/' . $this->plugin_name . '/languages/');
 		}
 	}
 	
