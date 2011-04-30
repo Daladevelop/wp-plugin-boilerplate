@@ -28,7 +28,7 @@ License: A "Slug" license name e.g. GPL, GPL2, MIT
 
 class wp_plugin_boilerplate {
 	
-	final private $plugin_name = "plugin_boilerplate";
+	private $plugin_name = "plugin_boilerplate";
 	
 	function __construct() {
 		// add_action('init', array($this, 'init_custom_post_types'));
@@ -44,7 +44,7 @@ class wp_plugin_boilerplate {
 		}
 	}
 	
-	private function init_scripts() {
+	function init_scripts() {
 		/* Only enqueue scripts on frontend. */
 		if(!is_admin()) {
 			/* Use jQuery from Google CDN */
@@ -60,7 +60,7 @@ class wp_plugin_boilerplate {
 		}
 	}
 	
-	private function init_styles() {
+	function init_styles() {
 		/* Only enqueue styles on frontend. */
 		if(!is_admin()) {
 			if(function_exists('plugins_url')) {
@@ -71,8 +71,8 @@ class wp_plugin_boilerplate {
 		}
 	}
 	
-	private function init_shortcodes() {
-		add_shortcode('shortcode', 'plugin_boilerplate_shortcode');
+	function init_shortcodes() {
+		add_shortcode('shortcode', array($this, 'plugin_boilerplate_shortcode'));
 	}
 	
 	function plugin_boilerplate_shortcode($atts) {
@@ -85,7 +85,7 @@ class wp_plugin_boilerplate {
 		// Register post_type as custom post type with post_type taxonomy as a taxanomy
 		register_post_type('post_type', array(
 			'labels' => array(
-				'name' => __('Post Types', 'plugin-biolerplate'),
+				'name' => __('Post Types', 'plugin-boilerplate'),
 				'singular_name' => 'Post type',
 				'add_new' => 'Add new',
 				'add_new_item' => 'Add new post type',
