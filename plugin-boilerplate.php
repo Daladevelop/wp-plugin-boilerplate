@@ -4,7 +4,7 @@ Plugin Name: Plugin Boilerplate
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Boilerplate for WordPress plugins containing basic functionality.
 Version: 1.0
-Author: Rickard Andersson, Mikael Jorhult
+Author: Rickard Andersson, Mikael Jorhult, Emil Österlund
 Author URI: http://URI_Of_The_Plugin_Author
 License: A "Slug" license name e.g. GPL, GPL2, MIT
 	
@@ -36,6 +36,7 @@ class wp_plugin_boilerplate {
 		// add_action('init', array($this, 'init_scripts'));
 		// add_action('init', array($this, 'init_shortcodes'));
 		// add_action('init', array($this, 'init_styles'));
+		// add_action('admin_menu", array($this,'my_admin_menu'));
 	}
 	
 	private function init_localization() {
@@ -127,6 +128,49 @@ class wp_plugin_boilerplate {
 			'query_var' => true,
 			'rewrite' => array('slug' => 'taxonomy')
 		));
+	}
+	function my_admin_menu()
+	{
+		global $mypage;
+		// add a new menu with the name My Admin Menu
+		// And let anyone that can publish posts be able to use it
+		// myadminmeny is the name of the menu and
+		// my admin page is the callback
+		$mypage = add_menu_page('My admin Menu' ,'This is my admin menu', 'publish_posts', 'myadminmenu',array($this,'my_admin_page'));
+
+
+		//also let us add a submenu
+		add_submenu_page('myadminmenu', 'Second options', 'Second Options', 'publis_posts','secondmenu', array($this, 'my_other_option_page'));
+
+
+
+	}
+	function my_admin_page()
+	{
+		?>
+			<div class="wrap">
+				<h1>MY PLUGIN!</h1>
+				text within this wrap will be styled wordpress admin way.
+
+			</div>
+
+
+		<?
+	}
+
+	function my_other_option_page()
+	{
+		
+		?>
+			<div class="wrap">
+				<h1>MY PLUGINS SECOND PAGE!!</h1>
+				text within this wrap will be styled wordpress admin way.
+
+			</div>
+
+
+		<?
+
 	}
 }
 ?>
