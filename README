@@ -1,3 +1,17 @@
 This is a boilerplate of a WordPress plugin which contains a number of different things that your plugin might want to implement, like localization, adding scripts and styles, custom post types, custom taxonomies and shortcodes. 
 
 The ambition of this plugin is to be a set of best practices on how to solve common tasks when writing a plugin for WordPress, your input and suggestions are welcome. 
+
+Usage instructions: 
+
+1. Search for @todo in the file and change the names and stuff so that your plugin will be unique.  
+2. In the __construct( ) function; uncomment the different types of functionality that you need.
+2a. (optional) If needed, uncomment the register_activation_hook( ) call
+2b. (optional) If needed, uncomment the call to install_db( ) from the install( ) function and define your tables
+3. Be a good open source developer; post bug reports, fixes, suggestions, ideas on better ways to handle stuff in the plugin.
+
+Thanks! 
+
+@emomilol
+@mikaeljorhult
+@rickard2
