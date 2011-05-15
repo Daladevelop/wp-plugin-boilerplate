@@ -331,7 +331,7 @@ class WP_Plugin_Boilerplate {
 		add_menu_page('Plugin Boilerplate Admin Menu', 'BP menu', 'publish_posts', $this->plugin_name . '-admin-menu', array($this,'main_menu_page'));
 
 		// Also let's add a submenu
-		add_submenu_page($this->plugin_name . '-admin-menu', 'Plugin Boilerplate Sub-Menu', 'BP submenu', 'publis_posts', $this->plugin_name . '-admin-submenu', array($this, 'sub_menu_page'));
+		add_submenu_page($this->plugin_name . '-admin-menu', 'Plugin Boilerplate Sub-Menu', 'BP submenu', 'publish_posts', $this->plugin_name . '-admin-submenu', array($this, 'sub_menu_page'));
 	}
 
 	/**
