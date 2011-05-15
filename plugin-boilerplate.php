@@ -5,7 +5,7 @@ Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Boilerplate for WordPress plugins containing basic functionality.
 Version: 1.0
 Author: Rickard Andersson, Mikael Jorhult, Emil Österlund
-Author URI: http://URI_Of_The_Plugin_Author
+Author URI: http://www.daladevelop.se
 License: A "Slug" license name e.g. GPL, GPL2, MIT
 	
 	Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : PLUGIN AUTHOR EMAIL)
@@ -98,11 +98,7 @@ class WP_Plugin_Boilerplate {
 	     */
 	    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
-	    /**
-	     * @todo Change myplugin to your plugin name
-	     * @var integer
-	     */
-	    $current_version = get_option('myplugin-db-version');
+	    $current_version = get_option($this->plugin_name.'-db-version');
     	$current_version = null;
 	    
 	    // Check if the latest version is already installed
@@ -172,13 +168,10 @@ class WP_Plugin_Boilerplate {
 			}
 		}
 		 
-	    /**
-	     * @todo Change myplugin to your plugin name
-	     */	
 		if ($current_version === false) {
-			add_option('myplugin-db-version', $db_version);
+			add_option($this->plugin_name.'-db-version', $db_version);
 		} else {
-			update_option('myplugin-db-version', $db_version);
+			update_option($this->plugin_name.'-db-version', $db_version);
 		}
 	}
 	/**
