@@ -1,5 +1,5 @@
 <?php
-if (!defined("ABSPATH"))
+if(!defined("ABSPATH"))
 	die(); // No direct access plx
 ?>	
 <div class="wrap">

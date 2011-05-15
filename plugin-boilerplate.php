@@ -34,7 +34,6 @@ License: A "Slug" license name e.g. GPL, GPL2, MIT
  * @todo Change class name to something more appropriate 
  */
 class WP_Plugin_Boilerplate {
-	
 	/**
 	 * This value will be used for 
 	 * - the gettext textdomain 
@@ -51,7 +50,6 @@ class WP_Plugin_Boilerplate {
 	 * @return void
 	 */
 	function __construct() {
-		
 		// Uncomment any of these calls to add the functionality that you need.
 
 		//add_action('init', array($this, 'init_custom_post_types'));
@@ -68,7 +66,6 @@ class WP_Plugin_Boilerplate {
 	 * @return void
 	 */
 	static function install() {
-		
 		/**
 		 * Uncomment this if you need database tables.
 		 * @todo Change WP_Plugin_Boilerplate to your plugin class name
@@ -83,7 +80,6 @@ class WP_Plugin_Boilerplate {
 	 * @return void
 	 */
 	static function install_db() {
-		
 	    global $wpdb;
 	    
 		/**
@@ -181,6 +177,7 @@ class WP_Plugin_Boilerplate {
 			update_option('myplugin-db-version', $db_version);
 		}
 	}
+	
 	/**
 	 * Loading the gettext textdomain first from the WP languages directory, 
 	 * and if that fails try the subfolder /languages/ in the plugin directory. 
@@ -326,7 +323,6 @@ class WP_Plugin_Boilerplate {
 	 * @return void
 	 */
 	function init_admin_menu() {
-
 		// Add the menu page
 		add_menu_page('Plugin Boilerplate Admin Menu', 'BP menu', 'publish_posts', $this->plugin_name . '-admin-menu', array($this,'main_menu_page'));
 
