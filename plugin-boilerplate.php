@@ -54,9 +54,9 @@ class WP_Plugin_Boilerplate {
 
 		//add_action('init', array($this, 'init_custom_post_types'));
 		//add_action('init', array($this, 'init_localization'));
-		//add_action('init', array($this, 'init_scripts'));
-		//add_action('wp_head', array($this, 'init_shortcodes'));
-		//add_action('init', array($this, 'init_styles'));
+		//add_action('get_header', array($this, 'init_scripts'));
+		//add_action('get_header', array($this, 'init_shortcodes'));
+		//add_action('get_header', array($this, 'init_styles'));
 		//add_action('admin_menu', array($this,'init_admin_menu'));
 	}
 	
@@ -200,11 +200,11 @@ class WP_Plugin_Boilerplate {
 		if(!is_admin()) {
 			// Use jQuery from Google CDN 
 			wp_deregister_script('jquery');
-			wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js');
+			wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js');
 			wp_enqueue_script('jquery');
 			
 			// Only enqueue the script if it actually exists. 
-			if (file_exists('scripts/script.js')) {
+			if(file_exists(dirname(__FILE__) . '/scripts/script.js')) {
 				if(function_exists('plugins_url')) {
 					wp_enqueue_script($this->plugin_name . '-script', plugins_url('/scripts/script.js', __FILE__), array('jquery'), '1.0', true);
 				} else {
@@ -220,7 +220,7 @@ class WP_Plugin_Boilerplate {
 	 */
 	function init_styles() {
 		// Only enqueue styles on frontend and if the stylesheet actually exists. 
-		if(!is_admin() && file_exists('styles/style.css')) {
+		if(!is_admin() && file_exists(dirname(__FILE__) . '/styles/style.css')) {
 			if(function_exists('plugins_url')) {
 				wp_enqueue_style($this->plugin_name . '-stylesheet', plugins_url('/styles/style.css', __FILE__), array(), '1.0', 'all');
 			} else {
