@@ -183,7 +183,7 @@ class WP_Plugin_Boilerplate {
 	 * and if that fails try the subfolder /languages/ in the plugin directory. 
 	 * @return void
 	 */
-	private function init_localization() {
+	function init_localization() {
 		if(!load_plugin_textdomain($this->plugin_name, '/wp-content/languages/')) {
 			load_plugin_textdomain($this->plugin_name, '/wp-content/plugins/' . $this->plugin_name . '/languages/');
 		}
@@ -267,7 +267,7 @@ class WP_Plugin_Boilerplate {
 	 * Loading custom post types and taxonomies for this plugin. 
 	 * @return void
 	 */
-	private function init_custom_post_types() {
+	function init_custom_post_types() {
 		// Register post_type as custom post type with post_type taxonomy as a taxanomy
 		register_post_type('post_type', array(
 			'labels' => array(
