@@ -52,11 +52,11 @@ class WP_Plugin_Boilerplate {
 	function __construct() {
 		// Uncomment any of these calls to add the functionality that you need.
 
-		//add_action('init', array($this, 'init_custom_post_types'));
-		//add_action('init', array($this, 'init_localization'));
-		//add_action('get_header', array($this, 'init_scripts'));
-		//add_action('get_header', array($this, 'init_shortcodes'));
-		//add_action('get_header', array($this, 'init_styles'));
+		//add_action('init', array($this, 'init_custom_post_types'), 20);
+		//add_action('init', array($this, 'init_localization'), 20);
+		//add_action('init', array($this, 'init_scripts'), 20);
+		//add_action('init', array($this, 'init_styles'), 20);
+		//add_action('init', array($this, 'init_shortcodes'), 20);
 		//add_action('admin_menu', array($this,'init_admin_menu'));
 	}
 	
