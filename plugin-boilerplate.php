@@ -55,7 +55,7 @@ class WP_Plugin_Boilerplate {
 		//add_action('init', array($this, 'init_custom_post_types'));
 		//add_action('init', array($this, 'init_localization'));
 		//add_action('init', array($this, 'init_scripts'));
-		//add_action('init', array($this, 'init_shortcodes'));
+		//add_action('wp_head', array($this, 'init_shortcodes'));
 		//add_action('init', array($this, 'init_styles'));
 		//add_action('admin_menu', array($this,'init_admin_menu'));
 	}
@@ -243,8 +243,7 @@ class WP_Plugin_Boilerplate {
 	 * or post. This is where you put the code to be executed
 	 * @param array $atts
 	 */
-	function plugin_boilerplate_shortcode($atts) {
-		
+	function plugin_boilerplate_shortcode($atts, $contents = '') {
 		// Extracting all the values sent as arguments with this shortcode
 		extract(shortcode_atts(array(
 			'attribute' => 'default',
@@ -257,8 +256,7 @@ class WP_Plugin_Boilerplate {
 		// output to the browser.
 		
 		// Fetch the output that you just echoed, and put it into the $content variable.
-		$content = ob_get_contents();
-		ob_end_flush();
+		$content = ob_get_clean();
 		
 		// Remember to always RETURN the content from the shortcode function, otherwise
 		// the result won't be placed in the correct part of the page. 
@@ -360,4 +358,4 @@ add_action("init", create_function('', 'new WP_Plugin_Boilerplate();'));
 //register_activation_hook(__FILE__, array('WP_Plugin_Boilerplate', 'install'));
 
 // Ending PHP tag is not needed, it will only increase the risk of white space 
-// being sent to the browser before any HTTP headers. 
+// being sent to the browser before any HTTP headers.
