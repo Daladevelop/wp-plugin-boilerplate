@@ -98,11 +98,11 @@ class WP_Plugin_Boilerplate {
 	     * @todo Change myplugin to your plugin name
 	     * @var integer
 	     */
-	    $current_version = get_option('myplugin-db-version');
-    	$current_version = null;
+        $current_version = null;
+        $current_version = get_option('myplugin-db-version');
 	    
 	    // Check if the latest version is already installed
-	    if ($current_version == $db_version) {
+	    if($current_version == $db_version) {
 	    	return;
 	    }
 	    
