@@ -7,7 +7,7 @@ class plugin_boilerplate_widget extends WP_Widget {
 
 	function plugin_boilerplate_widget() {
 		$options = array('description' => __("Plugin boilerplate description", $this->plugin_name));
-    	parent::WP_Widget(false, __('Plugin boilerplate', $this->plugin_name), $options);    
+    		parent::WP_Widget(false, __('Plugin boilerplate', $this->plugin_name), $options);    
   	}
 	
 	/**
@@ -28,14 +28,13 @@ class plugin_boilerplate_widget extends WP_Widget {
 	* @return void 
 	*/
 	function form($instance) {
-  	
-		// Get stored preferences, rememer to escape them!
-    	$title = strlen($instance['title']) > 0 ? esc_attr($instance['title']) : esc_attr($this->default_title);
+  		// Get stored preferences, rememer to escape them!
+    		$title = strlen($instance['title']) > 0 ? esc_attr($instance['title']) : esc_attr($this->default_title);
 		
 		?>
 		<label for="<?php echo $this->get_field_id('title');?>"><?php _e("Title:", $this->plugin_name) ?></label><br/>
 		<input type="text" id="<?php echo $this->get_field_id('title');?>" name="<?php echo $this->get_field_name('title');?>" value="<?php echo $title?>" /><br/>
-		<?  	
+		<?php
 	}
 
 	/**
@@ -45,7 +44,6 @@ class plugin_boilerplate_widget extends WP_Widget {
 	* @return void
 	*/
 	function widget($args, $instance) {
-			    
 		// Will extract $before_widget, $after_widget, $before_title and $after_title				
 		extract($args); 
 		
@@ -54,7 +52,7 @@ class plugin_boilerplate_widget extends WP_Widget {
 		
 		$title = strlen($title) > 0 ? $title : $this->default_title;
 		
-	    echo $before_widget;
+	    	echo $before_widget;
   		echo $before_title . $title . $after_title;
 		
 		// Insert your widget markup here
