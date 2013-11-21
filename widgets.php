@@ -2,8 +2,8 @@
 
 class plugin_boilerplate_widget extends WP_Widget {
 
-	final private $default_title = "Plugin boilerplate title"; 
-	final private $plugin_name = "plugin_boilerplate";
+	private $default_title = "Plugin boilerplate title";
+	private $plugin_name = "plugin_boilerplate";
 
 	function plugin_boilerplate_widget() {
 		$options = array('description' => __("Plugin boilerplate description", $this->plugin_name));
@@ -44,15 +44,16 @@ class plugin_boilerplate_widget extends WP_Widget {
 	* @return void
 	*/
 	function widget($args, $instance) {
-		// Will extract $before_widget, $after_widget, $before_title and $after_title				
-		extract($args); 
-		
-		// Will extract your options
-		extract($instance); 
-		
+        $before_widget = $args['before_widget'];
+        $after_widget = $args['after_widget'];
+        $before_title = $args['before_title'];
+        $after_title = $args['after_title'];
+
+        $title = $instance['title'];
+
 		$title = strlen($title) > 0 ? $title : $this->default_title;
 		
-	    	echo $before_widget;
+        echo $before_widget;
   		echo $before_title . $title . $after_title;
 		
 		// Insert your widget markup here
