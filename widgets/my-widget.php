@@ -8,10 +8,7 @@ class plugin_boilerplate_widget extends WP_Widget {
 	private $default_title = "Plugin boilerplate title";
 	private $plugin_name = "plugin_boilerplate";
 
-    /**
-     * @todo After renaming the class, rename this function as well
-     */
-    function plugin_boilerplate_widget() {
+    function __construct() {
 		$options = array('description' => __("Plugin boilerplate description", $this->plugin_name));
     		parent::WP_Widget(false, __('Plugin boilerplate', $this->plugin_name), $options);    
   	}
