@@ -1,11 +1,17 @@
 <?php
 
+/**
+ * @todo Rename to your widgets name
+ */
 class plugin_boilerplate_widget extends WP_Widget {
 
 	private $default_title = "Plugin boilerplate title";
 	private $plugin_name = "plugin_boilerplate";
 
-	function plugin_boilerplate_widget() {
+    /**
+     * @todo After renaming the class, rename this function as well
+     */
+    function plugin_boilerplate_widget() {
 		$options = array('description' => __("Plugin boilerplate description", $this->plugin_name));
     		parent::WP_Widget(false, __('Plugin boilerplate', $this->plugin_name), $options);    
   	}
@@ -28,8 +34,8 @@ class plugin_boilerplate_widget extends WP_Widget {
 	* @return void 
 	*/
 	function form($instance) {
-  		// Get stored preferences, rememer to escape them!
-    		$title = strlen($instance['title']) > 0 ? esc_attr($instance['title']) : esc_attr($this->default_title);
+  		// Get stored preferences, remember to escape them!
+        $title = strlen($instance['title']) > 0 ? esc_attr($instance['title']) : esc_attr($this->default_title);
 		
 		?>
 		<label for="<?php echo $this->get_field_id('title');?>"><?php _e("Title:", $this->plugin_name) ?></label><br/>
@@ -49,6 +55,7 @@ class plugin_boilerplate_widget extends WP_Widget {
         $before_title = $args['before_title'];
         $after_title = $args['after_title'];
 
+        // Get your stored options here..
         $title = $instance['title'];
 
 		$title = strlen($title) > 0 ? $title : $this->default_title;
