@@ -25,7 +25,7 @@ License: A "Slug" license name e.g. GPL, GPL2, MIT
 */
 
 // Uncomment this if you want to use the widget boilerplate
-// require_once('widgets.php');
+// require_once('widgets/my-widget.php');
 
 /**
  * This is where you add comments for your plugin class 
