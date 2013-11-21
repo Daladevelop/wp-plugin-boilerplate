@@ -47,7 +47,6 @@ class WP_Plugin_Boilerplate {
 		
 	/**
 	 * The constructor is executed when the class is instatiated and the plugin gets loaded.
-	 * @return void
 	 */
 	function __construct() {
 		// Uncomment any of these calls to add the functionality that you need.
@@ -66,11 +65,8 @@ class WP_Plugin_Boilerplate {
 	 * @return void
 	 */
 	static function install() {
-		/**
-		 * Uncomment this if you need database tables.
-		 * @todo Change WP_Plugin_Boilerplate to your plugin class name
-		 */
-		//WP_Plugin_Boilerplate::install_db(); 
+		// Uncomment this if you need database tables.
+		//self::install_db();
 		
 		// Perform your activation tasks in here. 
 	}
@@ -87,7 +83,7 @@ class WP_Plugin_Boilerplate {
 		 * needs to be increased every time you change something in your database layout. 
 		 * @var integer
 		 */
-		$db_version = 3; 
+		$db_version = 1;
 
 	    /**
 	     * To create tables, dbDelta from wp-admin/includes/upgrade.php is needed
@@ -96,10 +92,10 @@ class WP_Plugin_Boilerplate {
 
 	    /**
 	     * @todo Change myplugin to your plugin name
-	     * @var integer
 	     */
+        $option_name = 'myplugin-db-version';
         $current_version = null;
-        $current_version = get_option('myplugin-db-version');
+        $current_version = get_option($option_name);
 	    
 	    // Check if the latest version is already installed
 	    if($current_version == $db_version) {
@@ -133,6 +129,7 @@ class WP_Plugin_Boilerplate {
 	        `field3` varchar(255) NOT NULL,
 	        PRIMARY KEY(`id`) )"
 		);
+        $upgrade = array();
 	           
         // Routines for upgrading, the structure is
         // $upgrade[ from db version ][ table name ]
@@ -159,7 +156,7 @@ class WP_Plugin_Boilerplate {
 				// Table exists, check if there's any upgrade routines defined.
 				// The upgrade routines are applied in order from previous to current version
 
-				for ($i = $current_version; $i < MD_DB_VERSION; $i++) {
+				for ($i = $current_version; $i < $db_version; $i++) {
 					if (strlen($upgrade[ $i ][ $table ]) > 0) {
 						$sql = sprintf($upgrade[ $i ][ $table ], $wpdb->prefix);
 						$wpdb->query($sql);
@@ -168,13 +165,10 @@ class WP_Plugin_Boilerplate {
 			}
 		}
 		 
-	    /**
-	     * @todo Change myplugin to your plugin name
-	     */	
 		if ($current_version === false) {
-			add_option('myplugin-db-version', $db_version);
+			add_option($option_name, $db_version);
 		} else {
-			update_option('myplugin-db-version', $db_version);
+			update_option($option_name, $db_version);
 		}
 	}
 	
