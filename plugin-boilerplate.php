@@ -192,11 +192,6 @@ class WP_Plugin_Boilerplate {
 	function init_scripts() {
 		// Only enqueue scripts on frontend. 
 		if(!is_admin()) {
-			// Use jQuery from Google CDN 
-			wp_deregister_script('jquery');
-			wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js');
-			wp_enqueue_script('jquery');
-			
 			// Only enqueue the script if it actually exists. 
 			if(file_exists(dirname(__FILE__) . '/scripts/script.js')) {
 				if(function_exists('plugins_url')) {
