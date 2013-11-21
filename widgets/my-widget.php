@@ -61,3 +61,12 @@ class plugin_boilerplate_widget extends WP_Widget {
 		echo $after_widget;		
 	}	
 }
+
+// register Widget
+// @todo rename to your widgets name
+ function plugin_boilerplate_widget_register()  {
+     register_widget( 'plugin_boilerplate_widget' );
+ }
+
+// @todo rename to the function name 3 lines above
+ add_action( 'widgets_init', 'plugin_boilerplate_widget_register' );
