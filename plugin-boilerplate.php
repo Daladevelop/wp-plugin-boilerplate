@@ -36,8 +36,8 @@ License: A "Slug" license name e.g. GPL, GPL2, MIT
 class WP_Plugin_Boilerplate {
 	/**
 	 * This value will be used for 
-	 * - the gettext textdomain 
-	 * - the subfolder when adding scripts and styles
+	 * - the gettext text domain
+	 * - the sub-folder when adding scripts and styles
 	 * - the handle for scripts and styles
 	 * Please make sure that this value corresponds to the folder name where your plugin resides.
 	 * @var string 
@@ -224,7 +224,7 @@ class WP_Plugin_Boilerplate {
 	}
 	
 	/**
-	 * Add a shortcode for this plugin. It's recommended to change the code 
+	 * Add a shortcode for this plugin. It's recommended to change the code
 	 * to prevent from collisions. (The second value in the array)
 	 * @return void
 	 */
@@ -236,6 +236,8 @@ class WP_Plugin_Boilerplate {
 	 * This function will be executed when the plugin shortcode is used in a page 
 	 * or post. This is where you put the code to be executed
 	 * @param array $atts
+     * @param string $contents
+     * @return string
 	 */
 	function plugin_boilerplate_shortcode($atts, $contents = '') {
 		// Extracting all the values sent as arguments with this shortcode
@@ -262,7 +264,7 @@ class WP_Plugin_Boilerplate {
 	 * @return void
 	 */
 	function init_custom_post_types() {
-		// Register post_type as custom post type with post_type taxonomy as a taxanomy
+		// Register post_type as custom post type with post_type taxonomy as a taxonomy
 		register_post_type('post_type', array(
 			'labels' => array(
 				'name' => __('Post Types', 'plugin-boilerplate'),
